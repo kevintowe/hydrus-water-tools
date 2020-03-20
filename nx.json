@@ -26,6 +26,13 @@
     },
     "server": {
       "tags": []
+    },
+    "hydrus-user-portal": {
+      "tags": []
+    },
+    "hydrus-user-portal-e2e": {
+      "tags": [],
+      "implicitDependencies": ["hydrus-user-portal"]
     }
   }
 }

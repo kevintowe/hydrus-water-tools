@@ -256,6 +256,125 @@
           }
         }
       }
+    },
+    "hydrus-user-portal": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/hydrus-user-portal",
+      "sourceRoot": "apps/hydrus-user-portal/src",
+      "prefix": "hydrus-water-tools",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/hydrus-user-portal",
+            "index": "apps/hydrus-user-portal/src/index.html",
+            "main": "apps/hydrus-user-portal/src/main.ts",
+            "polyfills": "apps/hydrus-user-portal/src/polyfills.ts",
+            "tsConfig": "apps/hydrus-user-portal/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/hydrus-user-portal/src/favicon.ico",
+              "apps/hydrus-user-portal/src/assets"
+            ],
+            "styles": ["apps/hydrus-user-portal/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/hydrus-user-portal/src/environments/environment.ts",
+                  "with": "apps/hydrus-user-portal/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "hydrus-user-portal:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "hydrus-user-portal:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "hydrus-user-portal:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/hydrus-user-portal/tsconfig.app.json",
+              "apps/hydrus-user-portal/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/hydrus-user-portal/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/hydrus-user-portal/jest.config.js",
+            "tsConfig": "apps/hydrus-user-portal/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/hydrus-user-portal/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "hydrus-user-portal-e2e": {
+      "root": "apps/hydrus-user-portal-e2e",
+      "sourceRoot": "apps/hydrus-user-portal-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/hydrus-user-portal-e2e/cypress.json",
+            "tsConfig": "apps/hydrus-user-portal-e2e/tsconfig.e2e.json",
+            "devServerTarget": "hydrus-user-portal:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "hydrus-user-portal:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/hydrus-user-portal-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/hydrus-user-portal-e2e/**"]
+          }
+        }
+      }
     }
   },
   "cli": {
