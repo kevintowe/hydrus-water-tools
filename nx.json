@@ -11,16 +11,6 @@
     "nx.json": "*"
   },
   "projects": {
-    "hydrus-portal": {
-      "tags": []
-    },
-    "hydrus-portal-e2e": {
-      "tags": [],
-      "implicitDependencies": ["hydrus-portal"]
-    },
-    "api": {
-      "tags": []
-    },
     "api-interfaces": {
       "tags": []
     },
