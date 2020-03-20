@@ -200,6 +200,37 @@
           }
         }
       }
+    },
+    "hydrus-user-portal-environment": {
+      "projectType": "library",
+      "root": "libs/hydrus-user-portal/environment",
+      "sourceRoot": "libs/hydrus-user-portal/environment/src",
+      "prefix": "hydrus-water-tools",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/hydrus-user-portal/environment/tsconfig.lib.json",
+              "libs/hydrus-user-portal/environment/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/hydrus-user-portal/environment/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/hydrus-user-portal/environment/jest.config.js",
+            "tsConfig": "libs/hydrus-user-portal/environment/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/hydrus-user-portal/environment/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {
@@ -215,5 +246,5 @@
       "unitTestRunner": "jest"
     }
   },
-  "defaultProject": "hydrus-portal"
+  "defaultProject": "hydrus-user-portal"
 }

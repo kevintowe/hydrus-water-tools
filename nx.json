@@ -23,6 +23,9 @@
     "hydrus-user-portal-e2e": {
       "tags": [],
       "implicitDependencies": ["hydrus-user-portal"]
+    },
+    "hydrus-user-portal-environment": {
+      "tags": []
     }
   }
 }
