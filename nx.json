@@ -26,6 +26,9 @@
     },
     "hydrus-user-portal-environment": {
       "tags": []
+    },
+    "server-environment": {
+      "tags": []
     }
   }
 }

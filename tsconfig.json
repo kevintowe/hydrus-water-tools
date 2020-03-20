@@ -21,6 +21,9 @@
       ],
       "@hydrus-water-tools/hydrus-user-portal/environment": [
         "libs/hydrus-user-portal/environment/src/index.ts"
+      ],
+      "@hydrus-water-tools/server/environment": [
+        "libs/server/environment/src/index.ts"
       ]
     }
   },
