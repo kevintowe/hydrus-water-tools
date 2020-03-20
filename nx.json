@@ -23,6 +23,9 @@
     },
     "api-interfaces": {
       "tags": []
+    },
+    "server": {
+      "tags": []
     }
   }
 }
